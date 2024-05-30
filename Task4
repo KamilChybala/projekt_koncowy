@@ -13,7 +13,6 @@ def wczytaj_yml(sciezka_do_pliku):
     except Exception as e:
         print(f"Wystąpił nieoczekiwany błąd: {e}")
 
-# Przykład użycia
 sciezka_pliku = 'sciezka/pliku.yml'
 dane = wczytaj_yml(sciezka_pliku)
 if dane:
