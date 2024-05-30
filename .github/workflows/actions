@@ -1,1 +1,42 @@
+name: actions artificat
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  
+  push:
+    branches:
+      - master  
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: windows-latest  
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'  
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run installResources.ps1
+      run: .\installResources.ps1
+      shell: pwsh
+
+    - name: Build the executable
+      run: |
+        pyinstaller --onefile your_script.py  # Dostosuj to polecenie do swoich potrzeb
+      shell: pwsh
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: built-exe
+        path: dist/your_script.exe  # Ścieżka do utworzonego pliku .exe
 
