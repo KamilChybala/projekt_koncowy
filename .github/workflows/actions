@@ -31,12 +31,12 @@ jobs:
 
     - name: Build the executable
       run: |
-        pyinstaller --onefile wszystkiepliki.py
+        pyinstaller --onefile wszystkietaski.py
       shell: pwsh
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: built-exe
-        path: dist/wszystkiepliki.exe
+        path: dist/wszystkietaski.exe
 
