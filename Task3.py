@@ -8,7 +8,6 @@ def zapisz_do_json(dane, sciezka_pliku):
     except Exception as e:
         print(f"Wystąpił błąd podczas zapisywania do pliku: {e}")
 
-
 dane = {
     "imie": "Kamil",
     "nazwisko": "Chybala",
